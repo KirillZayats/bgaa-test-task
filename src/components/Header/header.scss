@@ -1,0 +1,43 @@
+@import '../../styles/theme.scss';
+
+header {
+    width: 100%;
+
+    .header__container {
+        @include adaptive-main-container;
+        padding: 20px 0;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 10px;
+        align-items: center;
+
+        .header__container-logotype {
+            height: 70px;
+            width: 100px;
+        }
+
+        .header__container-title {
+            @media screen and (min-width: $mobileS) {
+                font-size: 20px;
+            }
+
+            @media screen and (min-width: $mobileM) {
+                font-size: 22px;
+            }
+        
+            @media screen and (min-width: $tablet) {
+                font-size: 26px;
+            }
+        
+            @media screen and (min-width: $laptop) {
+                font-size: 30px;
+            }
+        
+            @media screen and (min-width: $desktop) {
+                font-size: 32px;
+            }
+        }
+    }
+}

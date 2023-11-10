@@ -1,0 +1,12 @@
+@import '../../styles/theme.scss';
+
+footer {
+    width: 100%;
+
+    .footer__container {
+        @include adaptive-main-container;
+        text-align: center;
+        padding: 20px 0;
+    }
+}
+

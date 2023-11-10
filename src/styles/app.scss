@@ -1,0 +1,36 @@
+@import "./theme.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    margin: 0 auto;
+    width: 100%;
+    height: calc(100vh - 171px);
+
+    font-style: normal;
+    line-height: normal;
+    font-family: "Roboto", sans-serif;
+
+    .line {
+        width: 100%;
+        height: 1px;
+        background: $line_color;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    a,
+    button {
+        cursor: pointer;
+    }
+}

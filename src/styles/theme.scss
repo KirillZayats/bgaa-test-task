@@ -1,0 +1,42 @@
+$background_color: #e71111;
+$text_color: #000;
+$background_head_card: #00a5ff;
+$background_rows: #89d1f8;
+$background_button: #009b0d;
+$background_special_elements: #000c75;
+$line_color: #aaaaaa;
+
+$mobileS: 320px;
+$mobileM: 375px;
+$mobileL: 425px;
+$tablet: 768px;
+$tabletS: 800px;
+$laptop: 1024px;
+$desktop: 1440px;
+
+@mixin adaptive-main-container{
+    margin: 0 auto;
+    @media screen and (min-width: $mobileS) {
+        max-width: calc(100% - 20px);
+    }
+
+    @media screen and (min-width: $mobileM) {
+        max-width: calc(100% - 40px);
+    }
+
+    @media screen and (min-width: $mobileL) {
+        max-width: calc($mobileL - 40px);
+    }
+
+    @media screen and (min-width: $tablet) {
+        max-width: calc(100% - 80px);
+    }
+
+    @media screen and (min-width: $laptop) {
+        max-width: calc(100% - 100px);
+    }
+
+    @media screen and (min-width: $desktop) {
+        max-width: calc(100% - 150px);
+    }
+}

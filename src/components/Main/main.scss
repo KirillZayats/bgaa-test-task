@@ -1,0 +1,8 @@
+@import '../../styles/theme.scss';
+
+main {
+    box-sizing: border-box;
+    min-height: 100%;
+
+    @include adaptive-main-container
+}
