@@ -1,0 +1,144 @@
+@import '../../../styles/theme.scss';
+
+.card {
+    box-sizing: border-box;
+    border: 1px solid $line_color;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .card__head {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        padding-bottom: 20px;
+        border-bottom: 1px solid $line_color;
+
+        .card__head-title {
+            border-radius: 10px 10px 0 0;
+            background: $background_head_card;
+            padding: 15px 0;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 2px solid $line_color;
+
+            .card__head-title-logo {
+                height: 24px;
+                width: 24px;
+            }
+
+            .card__head-title-text {
+                color: $text_color_head;
+
+                @media screen and (min-width: $mobileS) {
+                    font-size: 16px;
+                    max-width: 195px;
+                }
+
+                @media screen and (min-width: $mobileL) {
+                    max-width: 260px;
+                }
+
+                @media screen and (min-width: $tablet) {
+                    max-width: 100%;
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .card__list-info {
+            display: flex;
+
+
+            @media screen and (min-width: $mobileS) {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            @media screen and (min-width: $tablet) {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            @media screen and (min-width: $laptop) {
+                column-gap: 120px;
+                justify-content: center;
+            }
+
+            @media screen and (min-width: $desktop) {
+                column-gap: 15px;
+                justify-content: space-between;
+            }
+
+
+
+            .card__list-info-item {
+                display: flex;
+                flex-direction: row;
+
+                @media screen and (min-width: $mobileS) {
+                    justify-content: space-between;
+                    gap: 15px;
+
+                }
+
+                @media screen and (min-width: $mobileL) {
+                    justify-content: start;
+                    gap: 30px;
+                }
+
+                @media screen and (min-width: $tablet) {
+                    max-width: 270px;
+                    width: 100%;
+                    font-size: 17px;
+                }
+
+                @media screen and (min-width: $desktop) {
+                    max-width: 250px;
+                    gap: 20px;
+
+                }
+
+
+                .card__list-info-title {
+                    color: $text_color_head;
+                    font-weight: 700;
+
+                    width: 100%;
+
+                    @media screen and (min-width: $mobileL) {
+                        max-width: 250px;
+                    }
+
+                    @media screen and (min-width: $tablet) {
+                        max-width: 220px;
+                    }
+
+                    @media screen and (min-width: $desktop) {
+                        max-width: 220px;
+                    }
+                }
+
+                .card__list-info-text {
+                    font-weight: 400;
+                }
+            }
+        }
+    }
+
+    .card__body {
+
+        border: 1px solid $line_color;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+          }
+}

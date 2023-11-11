@@ -2,7 +2,8 @@
 
 footer {
     width: 100%;
-
+    background: $background_color;
+    color: $text_color-special;
     .footer__container {
         @include adaptive-main-container;
         text-align: center;

@@ -2,7 +2,8 @@
 
 header {
     width: 100%;
-
+    background: $background_color;
+    color: $text_color-special;
     .header__container {
         @include adaptive-main-container;
         padding: 20px 0;

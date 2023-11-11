@@ -3,6 +3,37 @@
 main {
     box-sizing: border-box;
     min-height: 100%;
+    padding: 50px 0;
+    @include adaptive-main-container;
 
-    @include adaptive-main-container
+    .card-list{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; 
+        width: 100%;
+
+        @media screen and (min-width: $mobileS) {
+            gap: 30px;
+        }
+    
+        @media screen and (min-width: $tablet) {
+            gap: 50px;
+        }
+    
+        @media screen and (min-width: $laptop) {
+            row-gap: 50px;
+            column-gap: 0px;  
+            justify-content: space-between;
+        }
+
+        .card-list__item {
+            @media screen and (min-width: $mobileS) {
+                width: 100%;
+            }
+
+            @media screen and (min-width: $desktop) {
+                width: calc(50% - 30px);
+            }
+        }
+    }
 }

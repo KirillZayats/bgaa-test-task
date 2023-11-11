@@ -1,10 +1,13 @@
-$background_color: #e71111;
+$background_color: #016aa3;
 $text_color: #000;
-$background_head_card: #00a5ff;
-$background_rows: #89d1f8;
+$text_color-special: #fff;
+$text_color_head: #000264;
+$background_head_card: #7ed2ff7a;
+$background_rows: #ace2ff33;
 $background_button: #009b0d;
 $background_special_elements: #000c75;
 $line_color: #aaaaaa;
+$strong_line_color: #000264;
 
 $mobileS: 320px;
 $mobileM: 375px;
@@ -17,11 +20,11 @@ $desktop: 1440px;
 @mixin adaptive-main-container{
     margin: 0 auto;
     @media screen and (min-width: $mobileS) {
-        max-width: calc(100% - 20px);
+        max-width: calc($mobileS - 20px);
     }
 
     @media screen and (min-width: $mobileM) {
-        max-width: calc(100% - 40px);
+        max-width: calc($mobileM - 40px);
     }
 
     @media screen and (min-width: $mobileL) {
@@ -29,14 +32,18 @@ $desktop: 1440px;
     }
 
     @media screen and (min-width: $tablet) {
-        max-width: calc(100% - 80px);
+        max-width: calc($tablet - 80px);
+    }
+
+    @media screen and (min-width: $tabletS) {
+        max-width: calc($tabletS - 80px);
     }
 
     @media screen and (min-width: $laptop) {
-        max-width: calc(100% - 100px);
+        max-width: calc($laptop - 100px);
     }
 
     @media screen and (min-width: $desktop) {
-        max-width: calc(100% - 150px);
+        max-width: calc($desktop - 150px);
     }
 }

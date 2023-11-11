@@ -1,0 +1,13 @@
+.selector {
+
+    .MuiAutocomplete-input {
+        text-align: center;
+    }
+
+    .MuiPaper-elevation {
+        li {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
