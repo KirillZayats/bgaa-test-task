@@ -4,7 +4,7 @@
     display: flex;
     flex-direction: column;
 
-    .table__teacher {
+    .table__teacher-column {
         @media screen and (min-width: $mobileS) {
             border-top: 1px solid $line_color;
         }
@@ -49,7 +49,7 @@
         @media screen and (min-width: $tablet) {
             border-bottom: 1px solid $line_color;
         }
-        .table__teacher {
+        .table__teacher-column {
             padding: 10px 0;
 
             .MuiOutlinedInput-root {
@@ -108,7 +108,7 @@
         padding: 10px 0;
     }
 
-    .table__teacher {
+    .table__teacher-column {
         display: flex;
         flex-direction: row;
         gap: 5px;
@@ -129,7 +129,7 @@
 
 
 .table__foot {
-    .table__task {
+    .table__task-column {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -147,7 +147,7 @@
     }
 }
 
-.table__task {
+.table__task-column {
     @media screen and (min-width: $mobileS) {
         width: 216px;
     }
@@ -171,7 +171,7 @@
     }
 }
 
-.table__hours {
+.table__hours-column {
     border-left: 1px solid $line_color;
 
     @media screen and (min-width: $mobileS) {
@@ -191,7 +191,7 @@
     }
 }
 
-.table__teacher {
+.table__teacher-column {
     @media screen and (min-width: $mobileS) {
         width: 100%;
     }

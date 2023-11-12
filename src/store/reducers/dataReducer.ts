@@ -14,7 +14,7 @@ export const dataReducer = (state = initialState, action: DataAction) => {
       return {
         isLoading: action.isLoading,
         subjects: [...action.data.data],
-        teachers: [...action.data.teachers],
+        teachers: [{id: 4, name: 'Вакансия'}, ...action.data.teachers],
       };
     default:
       return state;

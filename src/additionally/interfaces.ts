@@ -3,6 +3,11 @@ export interface ITeacher {
     name: string
 }
 
+export interface IClass {
+    id: number,
+    names: string[]
+}
+
 export interface IGroup {
     countStudents: string,
     laboratoryTeacher: string,
@@ -34,4 +39,12 @@ export interface ISubject {
 export interface ILoadData {
     data: ISubject[],
     teachers: ITeacher[]
+}
+
+export interface IPropsSubject {
+    subject: ISubject;
+}
+
+export interface IPropsSelector {
+    isStatus: boolean;
 }

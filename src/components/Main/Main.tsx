@@ -19,7 +19,7 @@ const Main = () => {
           listSubjects && listSubjects.length > 0 &&
             listSubjects.map((item: ISubject) => (
               <li key={item.uniqueId} className="card-list__item">
-              <Card />
+              <Card subject={item}/>
             </li>
             ))        
         }
