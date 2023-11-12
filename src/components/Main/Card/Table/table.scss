@@ -14,8 +14,7 @@
         }
     }
 
-    .table__item  {
-
+    .table__item {
         text-align: center;
         display: flex;
         flex-direction: row;
@@ -34,7 +33,7 @@
             @media screen and (min-width: $mobileS) {
                 padding: 10px 0;
             }
-    
+
             @media screen and (min-width: $tablet) {
                 padding: 20px 0;
             }
@@ -72,27 +71,67 @@
             }
         }
 
-            .table__teacher__set-all {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
+        .table__hours-column {
+
+            @media screen and (min-width: $tablet) {
+            display: flex;
+            align-items: center;
+            justify-content: center;            
+        }
+        }
+
+        .table__teacher__more {
+            transition: all .3s ease-out;
+            display: flex;
+            justify-content: space-between;
+            @media screen and (min-width: $mobileS) {
+                flex-direction: column;
+                gap: 15px;
             }
-        
-    }
 
-
-    .table__item__no-active-mobile {
-        @media screen and (min-width: $mobileS) {
-            display: none;
+            @media screen and (min-width: $laptop) {
+                flex-direction: row;
+            }
+            @media screen and (min-width: $desktop) {
+                flex-direction: column;
+                gap: 15px;
+            }
         }
 
-        @media screen and (min-width: $tablet) {
-            display: block;
+        .table__container-selector {
+            transition: all .3s ease-out;
+            display: flex;
+            flex-direction: row;
+            @media screen and (min-width: $laptop) {
+                width: 100%;
+            }
+            @media screen and (min-width: $desktop) {
+                width: auto;
+            }
+        }
+
+        .table__groups {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
         }
     }
 
-    .table__container-image, .table__image-plus {
+    .table__container-image,
+    .table__image-plus,
+    .table__image-delete {
         cursor: pointer;
+    }
+}
+
+.table__item__no-active-mobile {
+    @media screen and (min-width: $mobileS) {
+        display: none;
+    }
+
+    @media screen and (min-width: $tablet) {
+        display: block;
     }
 }
 
@@ -111,14 +150,55 @@
     .table__teacher-column {
         display: flex;
         flex-direction: row;
-        gap: 5px;
         align-items: center;
+    }
+
+    .table__teacher__center {
         justify-content: center;
+    }
+
+    .table__teacher__space-around {
+        justify-content: space-around;
     }
 
     .table__image-plus {
         height: 16px;
         width: 16px;
+        opacity: 1;
+        visibility: visible;
+        transition: all 0.3s ease-out;
+    }
+
+    .table__image-plus__no-active {
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+    }
+
+    .table__new-group {
+        @include container-text-icon;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-out;
+
+        width: 0;
+        height: 0;
+    }
+
+    .table__first-group {
+        @include container-text-icon;
+    }
+
+    .table__new-group__no-active {
+        opacity: 1;
+        visibility: visible;
+        width: auto;
+        height: auto;
+    }
+
+    .table__image-delete {
+        height: 19px;
+        width: 19px;
     }
 }
 
@@ -126,7 +206,6 @@
 .table__foot {
     background: $background_rows;
 }
-
 
 .table__foot {
     .table__task-column {
@@ -148,6 +227,10 @@
 }
 
 .table__task-column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     @media screen and (min-width: $mobileS) {
         width: 216px;
     }

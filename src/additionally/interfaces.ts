@@ -47,4 +47,10 @@ export interface IPropsSubject {
 
 export interface IPropsSelector {
     isStatus: boolean;
+    id: string;
+    className: string;
+    nameNewTeacher?: string;
+    setNameNewTeacher?: (value: string) => void;
+    nameSelector: string;
 }
+

@@ -17,6 +17,13 @@ $tabletS: 800px;
 $laptop: 1024px;
 $desktop: 1440px;
 
+@mixin container-text-icon {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    align-items: center;
+}
+
 @mixin adaptive-main-container{
     margin: 0 auto;
     @media screen and (min-width: $mobileS) {
