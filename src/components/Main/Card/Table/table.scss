@@ -56,6 +56,43 @@
                 padding: 0;
             }
         }
+
+        .table__container-image {
+            background: $background_special_elements;
+            height: 39px;
+            width: 45px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 8px;
+            .table__image-set-all {
+                height: 30px;
+                width: 25px;
+            }
+        }
+
+            .table__teacher__set-all {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        
+    }
+
+
+    .table__item__no-active-mobile {
+        @media screen and (min-width: $mobileS) {
+            display: none;
+        }
+
+        @media screen and (min-width: $tablet) {
+            display: block;
+        }
+    }
+
+    .table__container-image, .table__image-plus {
+        cursor: pointer;
     }
 }
 
@@ -90,6 +127,7 @@
     background: $background_rows;
 }
 
+
 .table__foot {
     .table__task {
         display: flex;
@@ -105,7 +143,7 @@
         padding: 5px;
         resize: none;
         width: calc(100% - 30px);
-        height: 50px;
+        height: 60px;
     }
 }
 
@@ -168,5 +206,29 @@
 
     @media screen and (min-width: $desktop) {
         width: 315px;
+    }
+}
+
+.table__item__bigger-mobile {
+    @media screen and (min-width: $mobileS) {
+        width: 278px;
+    }
+    @media screen and (min-width: $mobileM) {
+        width: 313px;
+    }
+    @media screen and (min-width: $mobileL) {
+        width: 363px;
+    }
+
+    @media screen and (min-width: $tablet) {
+        width: 260px;
+    }
+
+    @media screen and (min-width: $laptop) {
+        width: 300px;
+    }
+
+    @media screen and (min-width: $desktop) {
+        width: 215px;
     }
 }
