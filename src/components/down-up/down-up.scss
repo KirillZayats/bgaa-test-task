@@ -1,0 +1,36 @@
+@import '../../styles/theme.scss';
+
+.down-up-container {
+    cursor: pointer;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: $text_color_head;
+    right: 20px;
+    transition: all 0.4s ease-in;
+  
+    &:hover {
+       background: $background_color;
+    }
+
+    .down-up__icon {
+        height: 40px;
+        width: 40px;
+        fill: $text_color-special;
+    }
+}
+
+.down-up-container__hover {
+    bottom: -50px;
+    opacity: 0;
+}
+
+.down-up-container__show {
+    bottom: 20px;
+    opacity: 1;
+}
+

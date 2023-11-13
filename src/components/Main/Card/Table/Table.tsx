@@ -117,7 +117,7 @@ const Table: React.FC<IPropsSubject> = memo(({ subject }) => {
               : "table__gap-teacher__hidden"
           }`}
         >
-          <div className="table__container-selector">
+          <div className="table__container-selector-first">
             <Selector
               isStatus={subject.lecturesHours === "0"}
               id={`${subject.uniqueId}_value-set-all`}
@@ -138,7 +138,7 @@ const Table: React.FC<IPropsSubject> = memo(({ subject }) => {
           </div>
 
           <div
-            className={`table__container-selector table__item__hidden table__item-width__hidden ${
+            className={`table__container-selector-second table__item__hidden table__item-width__hidden ${
               isStatusGroup ? "table__item__show table__item-width__show" : ""
             }`}
           >

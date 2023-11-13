@@ -7,6 +7,7 @@ import { Suspense, lazy, useEffect } from "react";
 const Main = lazy(() => import("./components/main/Main"));
 const Header = lazy(() => import("./components/header/Header"));
 const Footer = lazy(() => import("./components/footer/Footer"));
+const DownUp = lazy(() => import("./components/down-up/DownUp"));
 
 const App = () => {
   const { isLoading } = useTypeSelector((state: RootState) => state.data);
@@ -22,6 +23,7 @@ const App = () => {
           <Header />
           <Main />
           <Footer />
+          <DownUp/>
         </div>
       )}
     </Suspense>

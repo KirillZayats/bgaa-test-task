@@ -65,9 +65,15 @@
             align-items: center;
             justify-content: center;
             margin-right: 8px;
+            transition: all .3s ease-out;
+
             .table__image-set-all {
                 height: 30px;
                 width: 25px;
+            }
+
+            &:hover {
+                background: $background_color;
             }
         }
 
@@ -103,7 +109,7 @@
             gap: 15px;
         }
 
-        .table__container-selector {
+        .table__container-selector-first {
             transition: all 0.3s ease-out;
             display: flex;
             flex-direction: row;
@@ -113,6 +119,12 @@
             @media screen and (min-width: $desktop) {
                 width: auto;
             }
+        }
+
+        .table__container-selector-second {
+            transition: all 0.3s ease-out;
+            display: flex;
+            flex-direction: row;
         }
 
         .table__groups {
@@ -336,12 +348,12 @@
 }
 
 .table__item-width__hidden {
-    width: 0 !important;
+    width: 0;
     height: 0;
 }
 
 .table__item-width__show {
-    width: 100% !important;
+    width: 100% ;
     height: auto;
 }
 
