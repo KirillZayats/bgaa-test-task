@@ -13,9 +13,11 @@ const Selector: React.FC<IPropsSelector> = memo(
     nameNewTeacher,
     setNameNewTeacher,
     nameSelector,
+    form
   }) => {
     const { teachers } = useTypeSelector((state) => state.data);
     const [value, setValue] = useState<string | null>(teachers[0].name);
+    const { register } = form;
 
     useEffect(() => {
       !isStatus && nameNewTeacher && setValue(nameNewTeacher);
@@ -30,6 +32,7 @@ const Selector: React.FC<IPropsSelector> = memo(
     return (
       <div className="selector">
         <Autocomplete
+
           disablePortal
           readOnly={isStatus}
           options={[...teachers.map((item) => item.name)]}
@@ -47,7 +50,8 @@ const Selector: React.FC<IPropsSelector> = memo(
             },
           }}
           renderInput={(params) => (
-            <TextField {...params} label={nameSelector} variant="outlined" />
+            <TextField           {...register(id)}
+            {...params} label={nameSelector} variant="outlined" />
           )}
         />
       </div>

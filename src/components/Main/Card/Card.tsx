@@ -4,7 +4,7 @@ import Table from "./table/Table";
 import { IPropsSubject } from "../../../additionally/interfaces";
 import { memo } from "react";
 
-const Card: React.FC<IPropsSubject> = memo(({ subject }) => {
+const Card: React.FC<IPropsSubject> = memo(({form, subject }) => {
 
   return (
     <article className="card">
@@ -35,7 +35,7 @@ const Card: React.FC<IPropsSubject> = memo(({ subject }) => {
         </ul>
       </div>
       <div className="card__body">
-        <Table subject={subject} />
+        <Table form={form} subject={subject} />
       </div>
     </article>
   );

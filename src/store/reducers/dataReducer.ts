@@ -51,6 +51,35 @@ const changeGroups = (
   return subjects;
 };
 
+// const changeNumberStudents = (id: string, valueInput: number, isStatusGroup: boolean, subjects: ISubject[]): ISubject[] => {
+//   let firstValue: number = 0;
+//   let secondValue: number = 0;
+//   console.log("test");
+  
+//   subjects.forEach((element: ISubject) => {
+//     if (element.uniqueId === id) {
+//       const allStudents = +element.studentsNumber;
+
+//       if(valueInput >= allStudents) {
+//         firstValue = allStudents - 1;
+//         secondValue = 1;
+//       } 
+//         else if(valueInput < 0 || valueInput === 0) {
+//           firstValue = 1;
+//           secondValue = allStudents - 1;
+//         }
+//       else {
+//         firstValue = valueInput;
+//         secondValue = allStudents - firstValue;
+//       }
+//       element.podgroups[0].countStudents = isStatusGroup ? `${firstValue}` : `${secondValue}`;
+//       element.podgroups[1].countStudents = isStatusGroup ? `${secondValue}` : `${firstValue}`;
+//     }
+//   }
+//   )
+//   return subjects;
+// }
+
 export const dataReducer = (state = initialState, action: DataAction) => {
   switch (action.type) {
     case DataActionType.GET_DATA:
@@ -73,6 +102,13 @@ export const dataReducer = (state = initialState, action: DataAction) => {
         subjects: state.subjects,
         teachers: state.teachers,
       };
+    // case DataActionType.CHANGE_NUMBER_STUDENTS:
+    //   changeNumberStudents(action.id, action.inputValue, action.isStatusGroup, state.subjects)
+    //   return {
+    //     isLoading: state.isLoading,
+    //     subjects: state.subjects,
+    //     teachers: state.teachers,
+    //   };
     default:
       return state;
   }

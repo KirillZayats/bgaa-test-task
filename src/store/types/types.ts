@@ -5,7 +5,15 @@ export enum DataActionType {
   POST_DATA = "POST_DATA",
   SET_GROUPS = "SET_GROUPS",
   DELETE_GROUPS = "DELETE_GROUPS",
+  CHANGE_NUMBER_STUDENTS = "CHANGE_NUMBER_STUDENTS",
 }
+
+// interface IChangeNumberAction {
+//   type: DataActionType.CHANGE_NUMBER_STUDENTS
+//   id: string,
+//   inputValue: number,
+//   isStatusGroup: boolean,
+// }
 
 interface IGetDataAction {
   type: DataActionType.GET_DATA;
@@ -33,4 +41,5 @@ export type DataAction =
   | IGetDataAction
   | IPostDataAction
   | ISetGroupsAction
-  | IDeleteGroupsAction;
+  | IDeleteGroupsAction
+  // | IChangeNumberAction;

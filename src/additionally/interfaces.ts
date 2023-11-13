@@ -42,6 +42,7 @@ export interface ILoadData {
 }
 
 export interface IPropsSubject {
+    form: any;
     subject: ISubject;
 }
 
@@ -52,5 +53,6 @@ export interface IPropsSelector {
     nameNewTeacher?: string;
     setNameNewTeacher?: (value: string) => void;
     nameSelector: string;
+    form: any
 }
 

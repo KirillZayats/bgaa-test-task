@@ -37,4 +37,34 @@ main {
             }
         }
     }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .sumbit-data {
+        height: 40px;
+        width: 200px;
+        border-radius: 5px;
+        background: $background_button;
+        color: $text_color-special; 
+        font-family: 'Roboto', sans-serif;
+        font-size: 16px;
+        border: none;
+        transition: all .3s ease-out;
+        
+        @media screen and (min-width: $mobileS) {
+            margin: 0 auto;
+        }
+
+        @media screen and (min-width: $tablet) {
+            margin: 0;
+        }
+
+        &:hover {
+            background: $background_special_elements;
+        }
+    }
 }
