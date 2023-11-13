@@ -16,19 +16,20 @@ const Selector: React.FC<IPropsSelector> = memo(
     form
   }) => {
     const { teachers } = useTypeSelector((state) => state.data);
-    const [value, setValue] = useState<string | null>(teachers[0].name);
-    const { register } = form;
-
+    const [value, setValueSelector] = useState<string | null>(teachers[0].name);
+    const { setValue } = form;
+    
     useEffect(() => {
-      !isStatus && nameNewTeacher && setValue(nameNewTeacher);
+      !isStatus && nameNewTeacher && setValueSelector(nameNewTeacher);
+      !isStatus && nameNewTeacher && setValue(id.split('_').join('.'), teachers.filter((item) => item.name === nameNewTeacher)[0].id);      
     }, [nameNewTeacher]);
 
     const changeValueSelector = (event: any, newValue: string | null) => {
-      setValue(newValue ? newValue : teachers[0].name);
+      setValueSelector(newValue ? newValue : teachers[0].name);
+      setValue(id.split('_').join('.'), newValue ? teachers.filter((item) => item.name === newValue)[0].id : teachers[0].id);
       setNameNewTeacher && setNameNewTeacher("");
       event
     };
-
     return (
       <div className="selector">
         <Autocomplete
@@ -50,7 +51,7 @@ const Selector: React.FC<IPropsSelector> = memo(
             },
           }}
           renderInput={(params) => (
-            <TextField           {...register(id)}
+            <TextField         
             {...params} label={nameSelector} variant="outlined" />
           )}
         />

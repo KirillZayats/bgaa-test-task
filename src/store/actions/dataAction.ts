@@ -45,12 +45,3 @@ export const deleteGroups = (id: string): DataAction => {
     idSubjects: id,
   };
 };
-
-// export const changeNumberStudents = (id: string, value: number, isStatusGroup: boolean): DataAction => {
-//   return {
-//     type: DataActionType.CHANGE_NUMBER_STUDENTS,
-//     id: id,
-//     inputValue: value,
-//     isStatusGroup: isStatusGroup
-//   };
-// };

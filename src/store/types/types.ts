@@ -8,13 +8,6 @@ export enum DataActionType {
   CHANGE_NUMBER_STUDENTS = "CHANGE_NUMBER_STUDENTS",
 }
 
-// interface IChangeNumberAction {
-//   type: DataActionType.CHANGE_NUMBER_STUDENTS
-//   id: string,
-//   inputValue: number,
-//   isStatusGroup: boolean,
-// }
-
 interface IGetDataAction {
   type: DataActionType.GET_DATA;
   isLoading: boolean;
@@ -42,4 +35,3 @@ export type DataAction =
   | IPostDataAction
   | ISetGroupsAction
   | IDeleteGroupsAction
-  // | IChangeNumberAction;

@@ -11,7 +11,7 @@ const Main = memo(() => {
   const { subjects } = useTypeSelector((state: RootState) => state.data);
   const [listSubjects, setListSubjects] = useState<ISubject[]>([]);
   const form = useForm<FieldValues>();
-  const { handleSubmit, trigger } = form;
+  const { handleSubmit } = form;
 
   useEffect(() => {
     setListSubjects([...subjects]);
@@ -20,7 +20,7 @@ const Main = memo(() => {
   const onSubmit: SubmitHandler<FieldValues> = (answer) => {
     console.log(answer);
 
-    
+
   }
   return (
     <main>
