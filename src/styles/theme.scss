@@ -24,7 +24,7 @@ $desktop: 1440px;
     align-items: center;
 }
 
-@mixin adaptive-main-container{
+@mixin adaptive-main-container {
     margin: 0 auto;
     @media screen and (min-width: $mobileS) {
         max-width: calc($mobileS - 20px);

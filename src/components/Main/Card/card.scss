@@ -1,4 +1,4 @@
-@import '../../../styles/theme.scss';
+@import "../../../styles/theme.scss";
 
 .card {
     box-sizing: border-box;
@@ -55,7 +55,6 @@
         .card__list-info {
             display: flex;
 
-
             @media screen and (min-width: $mobileS) {
                 flex-direction: column;
                 gap: 15px;
@@ -77,8 +76,6 @@
                 justify-content: space-between;
             }
 
-
-
             .card__list-info-item {
                 display: flex;
                 flex-direction: row;
@@ -86,7 +83,6 @@
                 @media screen and (min-width: $mobileS) {
                     justify-content: space-between;
                     gap: 15px;
-
                 }
 
                 @media screen and (min-width: $mobileL) {
@@ -103,9 +99,7 @@
                 @media screen and (min-width: $desktop) {
                     max-width: 250px;
                     gap: 20px;
-
                 }
-
 
                 .card__list-info-title {
                     color: $text_color_head;
@@ -134,11 +128,10 @@
     }
 
     .card__body {
-
         border: 1px solid $line_color;
         border-radius: 5px;
         display: flex;
         flex-direction: column;
         width: 100%;
-          }
+    }
 }

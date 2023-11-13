@@ -56,7 +56,7 @@ export const dataReducer = (state = initialState, action: DataAction) => {
     case DataActionType.GET_DATA:
       return {
         isLoading: action.isLoading,
-        subjects: [...action.data.data.reverse()],
+        subjects: [...action.data.data],
         teachers: [{ id: -1, name: "Вакансия" }, ...action.data.teachers],
       };
     case DataActionType.SET_GROUPS:

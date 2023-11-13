@@ -1,4 +1,4 @@
-@import '../../styles/theme.scss';
+@import "../../styles/theme.scss";
 
 header {
     width: 100%;
@@ -27,15 +27,15 @@ header {
             @media screen and (min-width: $mobileM) {
                 font-size: 22px;
             }
-        
+
             @media screen and (min-width: $tablet) {
                 font-size: 26px;
             }
-        
+
             @media screen and (min-width: $laptop) {
                 font-size: 30px;
             }
-        
+
             @media screen and (min-width: $desktop) {
                 font-size: 32px;
             }

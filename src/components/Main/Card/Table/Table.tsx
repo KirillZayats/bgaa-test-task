@@ -17,7 +17,6 @@ const Table: React.FC<IPropsSubject> = memo(({ subject }) => {
 
   useEffect(() => {
     subject.countPodgroups === "2" && setIsStatusGroup(true);
-    
   }, [subject]);
 
   const setTeacher = (isStatusTeacher: boolean) => {

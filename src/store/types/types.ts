@@ -1,16 +1,16 @@
 import { ILoadData } from "../../additionally/interfaces";
 
 export enum DataActionType {
-    GET_DATA = "GET_DATA",
-    POST_DATA = "POST_DATA",
-    SET_GROUPS = "SET_GROUPS",
-    DELETE_GROUPS = "DELETE_GROUPS",
-  }
+  GET_DATA = "GET_DATA",
+  POST_DATA = "POST_DATA",
+  SET_GROUPS = "SET_GROUPS",
+  DELETE_GROUPS = "DELETE_GROUPS",
+}
 
 interface IGetDataAction {
-    type: DataActionType.GET_DATA;
-    isLoading: boolean;
-    data: ILoadData;
+  type: DataActionType.GET_DATA;
+  isLoading: boolean;
+  data: ILoadData;
 }
 
 interface ISetGroupsAction {
@@ -24,10 +24,13 @@ interface IDeleteGroupsAction {
 }
 
 interface IPostDataAction {
-    type: DataActionType.POST_DATA;
+  type: DataActionType.POST_DATA;
 
-    // products: ILoadData[];
+  // products: ILoadData[];
 }
 
-
-  export type DataAction = IGetDataAction | IPostDataAction | ISetGroupsAction | IDeleteGroupsAction;
+export type DataAction =
+  | IGetDataAction
+  | IPostDataAction
+  | ISetGroupsAction
+  | IDeleteGroupsAction;
