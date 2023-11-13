@@ -1,11 +1,11 @@
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import "./selector.scss";
 import { useTypeSelector } from "../../../../../store/hooks/useTypeSelector";
 import { IPropsSelector } from "../../../../../additionally/interfaces";
 
-const Selector: React.FC<IPropsSelector> = ({
+const Selector: React.FC<IPropsSelector> = memo(({
   isStatus,
   id,
   className,
@@ -16,9 +16,7 @@ const Selector: React.FC<IPropsSelector> = ({
   const { teachers } = useTypeSelector((state) => state.data);
   const [value, setValue] = useState<string | null>(teachers[0].name);
 
-  useEffect(() => {
-    console.log(nameNewTeacher);
-    
+  useEffect(() => {    
     !isStatus && nameNewTeacher && setValue(nameNewTeacher);
   }, [nameNewTeacher]);
 
@@ -33,7 +31,7 @@ const Selector: React.FC<IPropsSelector> = ({
         disablePortal
         readOnly={isStatus}
         options={[...teachers.map((item) => item.name)]}
-        defaultValue={teachers[0].name}
+        // defaultValue={teachers[0].name}
         className={className}
         id={id}
         value={value}
@@ -53,6 +51,6 @@ const Selector: React.FC<IPropsSelector> = ({
       />
     </div>
   );
-};
+});
 
 export default Selector;

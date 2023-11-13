@@ -1,25 +1,31 @@
-import Footer from './components/Footer/Footer';
-import Header from './components/Header/Header';
-import Main from './components/Main/Main';
-import { useAction } from './store/hooks/useAction';
-import './styles/app.scss';
-import { useEffect } from 'react';
+import { useAction } from "./store/hooks/useAction";
+import { useTypeSelector } from "./store/hooks/useTypeSelector";
+import { RootState } from "./store/reducers";
+import "./styles/app.scss";
+import { Suspense, lazy, useEffect } from "react";
 
-function App() {
+const Main = lazy(() => import("./components/main/Main"));
+const Header = lazy(() => import("./components/header/Header"));
+const Footer = lazy(() => import("./components/footer/Footer"));
 
+const App = () => {
+  const { isLoading } = useTypeSelector((state: RootState) => state.data);
   const { getData } = useAction();
-
   useEffect(() => {
     getData();
-  }, [])
+  }, []);
 
   return (
-    <div className='app'>
-      <Header/>
-      <Main/>
-      <Footer/>
-    </div>
-  )
-}
+    <Suspense>
+      {isLoading && (
+        <div className="app">
+          <Header />
+          <Main />
+          <Footer />
+        </div>
+      )}
+    </Suspense>
+  );
+};
 
-export default App
+export default App;

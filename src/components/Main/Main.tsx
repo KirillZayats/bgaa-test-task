@@ -1,11 +1,11 @@
 import { ISubject } from "../../additionally/interfaces";
 import { useTypeSelector } from "../../store/hooks/useTypeSelector";
 import { RootState } from "../../store/reducers";
-import Card from "./Card/Card";
+import Card from "./card/Card";
 import "./main.scss";
-import { useState, useEffect} from 'react';
+import { useState, useEffect, memo} from 'react';
 
-const Main = () => {
+const Main = memo(() => {
   const { subjects } = useTypeSelector((state: RootState) => state.data);
   const [listSubjects, setListSubjects] = useState<ISubject[]>([]);
   
@@ -26,6 +26,6 @@ const Main = () => {
       </ul>
     </main>
   );
-};
+});
 
 export default Main;

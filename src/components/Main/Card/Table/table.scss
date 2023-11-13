@@ -30,6 +30,7 @@
     .table__foot,
     .table__main-item {
         .table__container {
+
             @media screen and (min-width: $mobileS) {
                 padding: 10px 0;
             }
@@ -86,7 +87,6 @@
             justify-content: space-between;
             @media screen and (min-width: $mobileS) {
                 flex-direction: column;
-                gap: 15px;
             }
 
             @media screen and (min-width: $laptop) {
@@ -94,8 +94,15 @@
             }
             @media screen and (min-width: $desktop) {
                 flex-direction: column;
-                gap: 15px;
             }
+        }
+
+        .table__gap-teacher__hidden {
+            gap: 0;
+        }
+
+        .table__gap-teacher__show {
+            gap: 15px;
         }
 
         .table__container-selector {
@@ -315,3 +322,45 @@
         width: 215px;
     }
 }
+
+.table__item__hidden {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.table__item__show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.table__item-width__hidden {
+    width: 0 !important;
+    height: 0;
+}
+
+.table__item-width__show {
+    width: 100% !important;
+    height: auto;
+}
+
+
+.table__item-height__hidden {
+    height: 0;
+}
+
+.table__item-height__show {
+    @media screen and (min-width: $mobileS) {
+        height: 100px;
+    }
+    @media screen and (min-width: $tablet) {
+        height: 60px;
+    }
+}
+
+
+
+

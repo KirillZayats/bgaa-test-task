@@ -1,6 +1,6 @@
 import "./footer.scss";
-
-const Footer = () => {
+import { memo } from 'react';
+const Footer = memo(() => {
   return (
     <footer>
       <div className="footer__container">
@@ -10,6 +10,6 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
+});
 
 export default Footer;

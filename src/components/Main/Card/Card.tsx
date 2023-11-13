@@ -1,11 +1,14 @@
 import "./card.scss";
 import head_logo from "../../../resources/book.svg";
-import Table from "./Table/Table";
+import Table from "./table/Table";
 import { IPropsSubject } from "../../../additionally/interfaces";
-import { useEffect } from 'react';
+import { memo, useEffect } from 'react';
 
-const Card: React.FC<IPropsSubject> = ({ subject }) => {
-
+const Card: React.FC<IPropsSubject> = memo(({ subject }) => {
+  useEffect(() => {
+    console.log(subject);
+    
+  }, [subject])
   return (
     <article className="card">
       <div className="card__head">
@@ -39,6 +42,6 @@ const Card: React.FC<IPropsSubject> = ({ subject }) => {
       </div>
     </article>
   );
-};
+});
 
 export default Card;

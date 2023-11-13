@@ -1,7 +1,8 @@
 import './header.scss';
 import logotype from '../../resources/logotype.svg';
+import { memo } from 'react';
 
-const Header = () => {
+const Header = memo(() => {
   return (
     <header>
       <div className="header__container">
@@ -10,6 +11,6 @@ const Header = () => {
       </div>
     </header>
   )
-}
+});
 
-export default Header
+export default Header;
