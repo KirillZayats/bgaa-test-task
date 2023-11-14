@@ -24,7 +24,7 @@ const Selector: React.FC<IPropsSelector> = memo(
     const [listTeacher, setListTeacher] = useState<ITeacher[]>();
     const { setValue } = form;
 
-    useEffect(() => {
+    useEffect(() => {      
       setListTeacher([...teachers]);
     }, [teachers]);
 
@@ -33,6 +33,7 @@ const Selector: React.FC<IPropsSelector> = memo(
     }, [listTeacher]);
 
     useEffect(() => {
+      
       !isStatus && nameNewTeacher && setValueSelector(nameNewTeacher);
       !isStatus &&
         nameNewTeacher &&

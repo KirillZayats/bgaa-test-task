@@ -68,7 +68,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
 
   const onBlurInput = (event: any, idInputAlien: string, idInput: string) => {
     if (+event.target.value === 0) {
-      setValue(idInput.split("_").join("."), '1');
+      setValue(idInput.split("_").join("."), "1");
       setValue(idInputAlien.split("_").join("."), allStudents - 1 + "");
     }
   };
@@ -206,7 +206,11 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
             nameSelector={isStatusGroup ? "Погруппа 1" : ""}
             form={form}
           />
-          {isStatusGroup && (
+          <div
+            className={`table__container-selector-second table__item__hidden table__item-width__hidden ${
+              isStatusGroup ? "table__item__show table__item-width__show" : ""
+            }`}
+          >
             <Selector
               isStatus={subject.laboratoryHours === "0"}
               id={`${subject.uniqueId}_laboratoryTeacher-2`}
@@ -216,7 +220,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
               nameSelector={isStatusGroup ? "Погруппа 2" : ""}
               form={form}
             />
-          )}
+          </div>
         </div>
       </div>
       <div className="table__item table__main-item">
@@ -242,7 +246,11 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
             nameSelector={isStatusGroup ? "Погруппа 1" : ""}
             form={form}
           />
-          {isStatusGroup && (
+          <div
+            className={`table__container-selector-second table__item__hidden table__item-width__hidden ${
+              isStatusGroup ? "table__item__show table__item-width__show" : ""
+            }`}
+          >
             <Selector
               isStatus={subject.practicHours === "0"}
               id={`${subject.uniqueId}_practiceTeacher-2`}
@@ -252,7 +260,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
               nameSelector={isStatusGroup ? "Погруппа 2" : ""}
               form={form}
             />
-          )}
+          </div>
         </div>
       </div>
       <div className="table__item table__main-item">
@@ -278,7 +286,11 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
             nameSelector={isStatusGroup ? "Погруппа 1" : ""}
             form={form}
           />
-          {isStatusGroup && (
+          <div
+            className={`table__container-selector-second table__item__hidden table__item-width__hidden ${
+              isStatusGroup ? "table__item__show table__item-width__show" : ""
+            }`}
+          >
             <Selector
               isStatus={subject.seminarHours === "0"}
               id={`${subject.uniqueId}_seminarTeacher-2`}
@@ -288,7 +300,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
               nameSelector={isStatusGroup ? "Погруппа 1" : ""}
               form={form}
             />
-          )}
+          </div>
         </div>
       </div>
       {subject.offset && (
@@ -315,7 +327,11 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
               nameSelector={isStatusGroup ? "Погруппа 1" : ""}
               form={form}
             />
-            {isStatusGroup && (
+            <div
+              className={`table__container-selector-second table__item__hidden table__item-width__hidden ${
+                isStatusGroup ? "table__item__show table__item-width__show" : ""
+              }`}
+            >
               <Selector
                 isStatus={false}
                 id={`${subject.uniqueId}_offsetTeacher-2`}
@@ -325,7 +341,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
                 nameSelector={isStatusGroup ? "Погруппа 2" : ""}
                 form={form}
               />
-            )}
+            </div>
           </div>
         </div>
       )}
@@ -353,7 +369,11 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
               nameSelector={isStatusGroup ? "Погруппа 1" : ""}
               form={form}
             />
-            {isStatusGroup && (
+            <div
+              className={`table__container-selector-second table__item__hidden table__item-width__hidden ${
+                isStatusGroup ? "table__item__show table__item-width__show" : ""
+              }`}
+            >
               <Selector
                 isStatus={false}
                 id={`${subject.uniqueId}_examTeacher-2`}
@@ -363,7 +383,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
                 nameSelector={isStatusGroup ? "Погруппа 2" : ""}
                 form={form}
               />
-            )}
+            </div>
           </div>
         </div>
       )}
@@ -382,7 +402,11 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
           <input
             {...register(`${subject.uniqueId}.countStudents`, {
               onBlur: (event: any) =>
-                onBlurInput(event, `${subject.uniqueId}_countStudents-2`, `${subject.uniqueId}.countStudents`),
+                onBlurInput(
+                  event,
+                  `${subject.uniqueId}_countStudents-2`,
+                  `${subject.uniqueId}.countStudents`
+                ),
               onChange: (event: any) =>
                 changeCountStudents(
                   event,
@@ -399,7 +423,11 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
             <input
               {...register(`${subject.uniqueId}.countStudents-2`, {
                 onBlur: (event: any) =>
-                  onBlurInput(event, `${subject.uniqueId}_countStudents`, `${subject.uniqueId}.countStudents-2`),
+                  onBlurInput(
+                    event,
+                    `${subject.uniqueId}_countStudents`,
+                    `${subject.uniqueId}.countStudents-2`
+                  ),
                 onChange: (event: any) =>
                   changeCountStudents(
                     event,

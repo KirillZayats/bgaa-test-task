@@ -20,7 +20,7 @@ const Main = memo(() => {
   }, [subjects]);
 
   const onSubmit: SubmitHandler<FieldValues> = (answer: any) => {
-    postData(answer, [...subjects])
+    postData(answer, subjects)
 
   }
   return (

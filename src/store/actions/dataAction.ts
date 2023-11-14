@@ -55,17 +55,12 @@ export const deleteGroups = (id: string): DataAction => {
 };
 
 const changeArraySubject = (data: any, subjects: ISubject[]): ISubject[] => {
-  let listSubjects: ISubject[] = [...subjects];
-  console.log(data);
+  let listSubjects: ISubject[] = JSON.parse(JSON.stringify(subjects));
   
   listSubjects.forEach((subject: any) => {
     let itemForm = data[`${subject.uniqueId}`];
-    
+
     let keys = Object.keys(itemForm);
-    // console.log(itemForm);
-    
-    // console.log(keys);
-    
     keys.forEach((key: string) => {
       let keyParts = key.split("-");
       if (subject[keyParts[0]] !== undefined) {
@@ -76,14 +71,10 @@ const changeArraySubject = (data: any, subjects: ISubject[]): ISubject[] => {
         subject.podgroups[1][keyParts[0]] !== undefined
       ) {
         subject.podgroups[1][keyParts[0]] = itemForm[key];
-        console.log(itemForm[key]);
-        console.log(subject.podgroups[1][keyParts[0]]);
-        
       } else if (
         keyParts.length === 1 &&
         subject.podgroups[0][keyParts[0]] !== undefined
       ) {
-        
         subject.podgroups[0][keyParts[0]] = itemForm[key];
       }
     });
