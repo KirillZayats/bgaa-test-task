@@ -1,4 +1,4 @@
-import { ILoadData, ISubject } from "../../additionally/interfaces";
+import { ILoadData } from "../../additionally/interfaces";
 
 export enum DataActionType {
   GET_DATA = "GET_DATA",

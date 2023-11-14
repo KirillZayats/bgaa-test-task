@@ -24,7 +24,7 @@ const Main = memo(() => {
     !active &&
       setTimeout(() => {
         confirmPost();
-      }, 1000);
+      }, 500);
   }, [active]);
 
   useEffect(() => {
