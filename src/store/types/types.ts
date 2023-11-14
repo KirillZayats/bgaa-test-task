@@ -6,6 +6,7 @@ export enum DataActionType {
   SET_GROUPS = "SET_GROUPS",
   DELETE_GROUPS = "DELETE_GROUPS",
   CHANGE_NUMBER_STUDENTS = "CHANGE_NUMBER_STUDENTS",
+  CONFIRM_POST = "CONFIRM_POST",
 }
 
 interface IGetDataAction {
@@ -26,7 +27,11 @@ interface IDeleteGroupsAction {
 
 interface IPostDataAction {
   type: DataActionType.POST_DATA;
-  subjects: ISubject[]
+  message: string
+}
+
+interface IConfirmPostAction {
+  type: DataActionType.CONFIRM_POST
 }
 
 export type DataAction =
@@ -34,3 +39,4 @@ export type DataAction =
   | IPostDataAction
   | ISetGroupsAction
   | IDeleteGroupsAction
+  | IConfirmPostAction;

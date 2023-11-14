@@ -1,5 +1,5 @@
 import { DataAction, DataActionType } from "../types/types";
-import { GET_BASE_URL } from "../../additionally/constants";
+import { GET_BASE_URL, POST_BASE_URL } from "../../additionally/constants";
 import { ILoadData, ISubject } from "../../additionally/interfaces";
 
 const getDataSuccess = (data: ILoadData): DataAction => {
@@ -31,12 +31,51 @@ export const getData = () => {
   };
 };
 
-export const postData = (data: any[], subjects: ISubject[]): DataAction => {
-  changeArraySubject(data, subjects);
-
+export const postDataSuccess = (
+  isStatusPost: boolean,
+  errorMessage: string
+): DataAction => {
   return {
     type: DataActionType.POST_DATA,
-    subjects: subjects,
+    message: isStatusPost
+      ? "данные получены успешно"
+      : `Ошибка: ${errorMessage}`,
+  };
+};
+
+export const confirmPost = (): DataAction => {
+  return {
+    type: DataActionType.CONFIRM_POST,
+  };
+};
+
+export const postData = (data: any[], subjects: ISubject[]) => {
+  let newSubjects: ISubject[] = [...changeArraySubject(data, subjects)];
+
+  return async (dispatch: any) => {
+    return fetch(POST_BASE_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(newSubjects),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(
+            "данные не были успешно получены. Ресурс недоступен :("
+          );
+        }
+        return response;
+      })
+      .then((response) => {
+        console.log(response.json());
+        dispatch(postDataSuccess(true, ""));
+      })
+      .catch((error) => {
+        dispatch(postDataSuccess(false, error.message));
+      });
   };
 };
 
@@ -56,7 +95,7 @@ export const deleteGroups = (id: string): DataAction => {
 
 const changeArraySubject = (data: any, subjects: ISubject[]): ISubject[] => {
   let listSubjects: ISubject[] = JSON.parse(JSON.stringify(subjects));
-  
+
   listSubjects.forEach((subject: any) => {
     let itemForm = data[`${subject.uniqueId}`];
 
@@ -79,7 +118,9 @@ const changeArraySubject = (data: any, subjects: ISubject[]): ISubject[] => {
       }
     });
   });
-  console.log(listSubjects);
+
+  //как будет выглядеть список после полученных данных с формы
+  // console.log(listSubjects);
 
   return listSubjects;
 };

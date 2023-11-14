@@ -5,6 +5,8 @@ const initialState = {
   isLoading: false,
   subjects: [] as ISubject[],
   teachers: [] as ITeacher[],
+  isPostData: false,
+  messagePost: "",
 };
 
 const podgroup: IGroup = {
@@ -57,7 +59,9 @@ export const dataReducer = (state = initialState, action: DataAction) => {
       return {
         isLoading: action.isLoading,
         subjects: [...action.data.data],
-        teachers: [{ id: '', name: "Вакансия" }, ...action.data.teachers],
+        teachers: [{ id: "", name: "Вакансия" }, ...action.data.teachers],
+        isPostData: state.isPostData,
+        messagePost: state.messagePost,
       };
     case DataActionType.SET_GROUPS:
       changeGroups(action.idSubjects, state.subjects, action.type);
@@ -65,6 +69,8 @@ export const dataReducer = (state = initialState, action: DataAction) => {
         isLoading: state.isLoading,
         subjects: state.subjects,
         teachers: state.teachers,
+        isPostData: state.isPostData,
+        messagePost: state.messagePost,
       };
     case DataActionType.DELETE_GROUPS:
       changeGroups(action.idSubjects, state.subjects, action.type);
@@ -72,6 +78,24 @@ export const dataReducer = (state = initialState, action: DataAction) => {
         isLoading: state.isLoading,
         subjects: state.subjects,
         teachers: state.teachers,
+        isPostData: state.isPostData,
+        messagePost: state.messagePost,
+      };
+    case DataActionType.POST_DATA:
+      return {
+        isLoading: state.isLoading,
+        subjects: state.subjects,
+        teachers: state.teachers,
+        isPostData: true,
+        messagePost: action.message,
+      };
+    case DataActionType.CONFIRM_POST:
+      return {
+        isLoading: state.isLoading,
+        subjects: state.subjects,
+        teachers: state.teachers,
+        isPostData: false,
+        messagePost: "",
       };
     default:
       return state;
