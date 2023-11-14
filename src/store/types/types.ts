@@ -1,4 +1,4 @@
-import { ILoadData } from "../../additionally/interfaces";
+import { ILoadData, ISubject } from "../../additionally/interfaces";
 
 export enum DataActionType {
   GET_DATA = "GET_DATA",
@@ -26,8 +26,7 @@ interface IDeleteGroupsAction {
 
 interface IPostDataAction {
   type: DataActionType.POST_DATA;
-
-  // products: ILoadData[];
+  subjects: ISubject[]
 }
 
 export type DataAction =

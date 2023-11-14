@@ -3,7 +3,11 @@ import TextField from "@mui/material/TextField";
 import { memo, useEffect, useState } from "react";
 import "./selector.scss";
 import { useTypeSelector } from "../../../../../store/hooks/useTypeSelector";
-import { IPropsSelector } from "../../../../../additionally/interfaces";
+import {
+  IPropsSelector,
+  ITeacher,
+} from "../../../../../additionally/interfaces";
+import { RootState } from "../../../../../store/reducers";
 
 const Selector: React.FC<IPropsSelector> = memo(
   ({
@@ -13,30 +17,51 @@ const Selector: React.FC<IPropsSelector> = memo(
     nameNewTeacher,
     setNameNewTeacher,
     nameSelector,
-    form
+    form,
   }) => {
-    const { teachers } = useTypeSelector((state) => state.data);
-    const [value, setValueSelector] = useState<string | null>(teachers[0].name);
+    const { teachers } = useTypeSelector((state: RootState) => state.data);
+    const [value, setValueSelector] = useState<string | null>(null);
+    const [listTeacher, setListTeacher] = useState<ITeacher[]>();
     const { setValue } = form;
-    
+
+    useEffect(() => {
+      setListTeacher([...teachers]);
+    }, [teachers]);
+
+    useEffect(() => {
+      listTeacher && setValueSelector(listTeacher[0].name);
+    }, [listTeacher]);
+
     useEffect(() => {
       !isStatus && nameNewTeacher && setValueSelector(nameNewTeacher);
-      !isStatus && nameNewTeacher && setValue(id.split('_').join('.'), teachers.filter((item) => item.name === nameNewTeacher)[0].id);      
+      !isStatus &&
+        nameNewTeacher &&
+        listTeacher &&
+        setValue(
+          id.split("_").join("."),
+          listTeacher.filter((item) => item.name === nameNewTeacher)[0].id
+        );
     }, [nameNewTeacher]);
 
     const changeValueSelector = (event: any, newValue: string | null) => {
-      setValueSelector(newValue ? newValue : teachers[0].name);
-      setValue(id.split('_').join('.'), newValue ? teachers.filter((item) => item.name === newValue)[0].id : teachers[0].id);
+      if (listTeacher) {
+        setValueSelector(newValue ? newValue : listTeacher[0].name);
+        setValue(
+          id.split("_").join("."),
+          newValue
+            ? listTeacher.filter((item) => item.name === newValue)[0].id
+            : listTeacher[0].id
+        );
+      }
       setNameNewTeacher && setNameNewTeacher("");
-      event
+      event;
     };
     return (
       <div className="selector">
         <Autocomplete
-
           disablePortal
           readOnly={isStatus}
-          options={[...teachers.map((item) => item.name)]}
+          options={listTeacher ? [...listTeacher.map((item) => item.name)] : []}
           className={className}
           id={id}
           value={value}
@@ -51,8 +76,7 @@ const Selector: React.FC<IPropsSelector> = memo(
             },
           }}
           renderInput={(params) => (
-            <TextField         
-            {...params} label={nameSelector} variant="outlined" />
+            <TextField {...params} label={nameSelector} variant="outlined" />
           )}
         />
       </div>

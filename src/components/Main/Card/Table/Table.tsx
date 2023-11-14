@@ -47,6 +47,8 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
   const deleteGroup = () => {
     setIsStatusGroup(false);
     deleteGroups(subject.uniqueId);
+    setValue(`${subject.uniqueId}.countStudents`, `${subject.studentsNumber}`);
+    setValue(`${subject.uniqueId}.countStudents-2`, ``);
   };
 
   const changeCountStudents = (event: any, idInput: string) => {
@@ -64,10 +66,10 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
     }
   };
 
-  const onBlurInput = (event: any, idInput: string) => {
+  const onBlurInput = (event: any, idInputAlien: string, idInput: string) => {
     if (+event.target.value === 0) {
-      event.target.value = `1`;
-      setValue(idInput.split("_").join("."), allStudents - 1 + "");
+      setValue(idInput.split("_").join("."), '1');
+      setValue(idInputAlien.split("_").join("."), allStudents - 1 + "");
     }
   };
 
@@ -233,7 +235,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
         >
           <Selector
             isStatus={subject.practicHours === "0"}
-            id={`${subject.uniqueId}_practic`}
+            id={`${subject.uniqueId}_practiceTeacher`}
             className={subject.uniqueId}
             nameNewTeacher={nameNewFirstTeacher}
             setNameNewTeacher={setNameNewFirstTeacher}
@@ -243,7 +245,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
           {isStatusGroup && (
             <Selector
               isStatus={subject.practicHours === "0"}
-              id={`${subject.uniqueId}_practic-2`}
+              id={`${subject.uniqueId}_practiceTeacher-2`}
               className={subject.uniqueId}
               nameNewTeacher={nameNewSecondTeacher}
               setNameNewTeacher={setNameNewSecondTeacher}
@@ -380,7 +382,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
           <input
             {...register(`${subject.uniqueId}.countStudents`, {
               onBlur: (event: any) =>
-                onBlurInput(event, `${subject.uniqueId}_countStudents-2`),
+                onBlurInput(event, `${subject.uniqueId}_countStudents-2`, `${subject.uniqueId}.countStudents`),
               onChange: (event: any) =>
                 changeCountStudents(
                   event,
@@ -397,7 +399,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
             <input
               {...register(`${subject.uniqueId}.countStudents-2`, {
                 onBlur: (event: any) =>
-                  onBlurInput(event, `${subject.uniqueId}_countStudents`),
+                  onBlurInput(event, `${subject.uniqueId}_countStudents`, `${subject.uniqueId}.countStudents-2`),
                 onChange: (event: any) =>
                   changeCountStudents(
                     event,
@@ -428,6 +430,7 @@ const Table: React.FC<IPropsSubject> = memo(({ form, subject }) => {
             {...register(`${subject.uniqueId}.additionalInfo`)}
             id={`id_${subject.uniqueId}_textarea`}
             className="table__textarea"
+            defaultValue={subject.additionalInfo}
           ></textarea>
         </div>
       </div>

@@ -138,7 +138,6 @@
                 border: none;
                 max-width: 25px;
                 padding: 5px;
-                font-family: 'Roboto', sans-serif;
                 font-size: 16px;
                 font-weight: 700;
 
@@ -269,6 +268,10 @@
         resize: none;
         width: calc(100% - 30px);
         height: 60px;
+        transition: color 1s, outline-color .7s ease-out, background-color .7s ease-out;
+        &:focus-visible {
+            outline-color: $background_color;
+        }
     }
 }
 

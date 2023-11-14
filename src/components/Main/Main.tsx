@@ -6,9 +6,11 @@ import Card from "./card/Card";
 import "./main.scss";
 import { useState, useEffect, memo } from "react";
 import { FieldValues } from "../../additionally/types";
+import { useAction } from "../../store/hooks/useAction";
 
 const Main = memo(() => {
   const { subjects } = useTypeSelector((state: RootState) => state.data);
+  const { postData } = useAction();
   const [listSubjects, setListSubjects] = useState<ISubject[]>([]);
   const form = useForm<FieldValues>();
   const { handleSubmit } = form;
@@ -17,9 +19,8 @@ const Main = memo(() => {
     setListSubjects([...subjects]);
   }, [subjects]);
 
-  const onSubmit: SubmitHandler<FieldValues> = (answer) => {
-    console.log(answer);
-
+  const onSubmit: SubmitHandler<FieldValues> = (answer: any) => {
+    postData(answer, [...subjects])
 
   }
   return (

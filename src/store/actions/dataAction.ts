@@ -1,6 +1,6 @@
 import { DataAction, DataActionType } from "../types/types";
 import { GET_BASE_URL } from "../../additionally/constants";
-import { ILoadData } from "../../additionally/interfaces";
+import { ILoadData, ISubject } from "../../additionally/interfaces";
 
 const getDataSuccess = (data: ILoadData): DataAction => {
   return {
@@ -27,8 +27,16 @@ export const getData = () => {
       })
       .catch((error) => {
         console.log(error);
-        // dispatch(errorData('Error - No connection to server'))
       });
+  };
+};
+
+export const postData = (data: any[], subjects: ISubject[]): DataAction => {
+  changeArraySubject(data, subjects);
+
+  return {
+    type: DataActionType.POST_DATA,
+    subjects: subjects,
   };
 };
 
@@ -44,4 +52,43 @@ export const deleteGroups = (id: string): DataAction => {
     type: DataActionType.DELETE_GROUPS,
     idSubjects: id,
   };
+};
+
+const changeArraySubject = (data: any, subjects: ISubject[]): ISubject[] => {
+  let listSubjects: ISubject[] = [...subjects];
+  console.log(data);
+  
+  listSubjects.forEach((subject: any) => {
+    let itemForm = data[`${subject.uniqueId}`];
+    
+    let keys = Object.keys(itemForm);
+    // console.log(itemForm);
+    
+    // console.log(keys);
+    
+    keys.forEach((key: string) => {
+      let keyParts = key.split("-");
+      if (subject[keyParts[0]] !== undefined) {
+        subject[keyParts[0]] = itemForm[key];
+      } else if (
+        keyParts[1] === "2" &&
+        subject.podgroups[1] !== undefined &&
+        subject.podgroups[1][keyParts[0]] !== undefined
+      ) {
+        subject.podgroups[1][keyParts[0]] = itemForm[key];
+        console.log(itemForm[key]);
+        console.log(subject.podgroups[1][keyParts[0]]);
+        
+      } else if (
+        keyParts.length === 1 &&
+        subject.podgroups[0][keyParts[0]] !== undefined
+      ) {
+        
+        subject.podgroups[0][keyParts[0]] = itemForm[key];
+      }
+    });
+  });
+  console.log(listSubjects);
+
+  return listSubjects;
 };
